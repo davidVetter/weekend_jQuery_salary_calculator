@@ -1,0 +1,12 @@
+#employeeTable {
+    width: 80%;
+}
+
+#tableDiv {
+    display: flex;
+    justify-content: center;
+}
+
+#employeeTableBody {
+    text-align: center;
+}
