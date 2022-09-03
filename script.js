@@ -60,12 +60,12 @@ clickHandlers = () => {
 function getVals() {
     let firstName = $('#fNameInput').val();
     let lastName = $('#lNameInput').val();
-    let empId = $('#idNumInput').val();
+    let empId = Number($('#idNumInput').val());
     let empTitle  = $('#titleInput').val();
     let annualSalary = Number($('#annualSalaryInput').val());
     console.log(annualSalary);
 
-    if (firstName === '' || lastName === '' || empId === '' || empTitle === '' || annualSalary === 0) {
+    if (firstName === '' || lastName === '' || empId === 0 || empTitle === '' || annualSalary === 0 || !(typeof empId === 'number') || !(typeof annualSalary === 'number')) {
         $('#inputError').show();
         return;
     }
@@ -77,14 +77,14 @@ function getVals() {
 addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
     if (firstRun) {
         $('#clearBtn').show();
-        $('#tableHeadRow').append(`<th id="buttonField"></th>`);
+        $('#tableHeadRow').append(`<th title="Delete the row button column"id="buttonField"></th>`);
         $('tfoot').show();
         firstRun = false;
     }
     clearInputs();
     $('#buttonField').show(); 
     $("#employeeTableBody").append(
-      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td class="annualSalaryIn">$${annualSalary.toLocaleString()}</td><td><button class="deleteBtn">Delete</button></td></tr>`
+      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td class="annualSalaryIn">$${annualSalary.toLocaleString()}</td><td><button class="deleteBtn" title="Delete this row button">Delete</button></td></tr>`
     );
     calculateMonthly();
 }
