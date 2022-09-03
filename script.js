@@ -7,6 +7,7 @@ function onReady() {
         getVals();
     })
     $('#clearBtn').hide();
+    $('tfoot').hide();
     $('#clearBtn').on('click', () => {
         $('#employeeTableBody').empty();
         clearInputs();
@@ -27,6 +28,7 @@ addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
     if (firstRun) {
         $('#clearBtn').show();
         $('#tableHeadRow').append(`<th id="buttonField"></th>`);
+        $('tfoot').show();
         firstRun = false;
     }
     clearInputs();
