@@ -11,6 +11,10 @@ function onReady() {
     $('#clearBtn').on('click', () => {
         $('#employeeTableBody').empty();
         clearInputs();
+        $('#buttonField').hide();
+    });
+    $('#employeeTableBody').on('click', ".deleteBtn", (event) =>{
+        removeRow(event);
     });
 }
 
@@ -32,7 +36,10 @@ addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
         firstRun = false;
     }
     clearInputs();
-    $('#employeeTableBody').append(`<tr class="tableRows"><td>${firstName}</td><td>${lastName}</td><td>${empId}</td><td>${emptTitle}</td><td>${annualSalary}</td><td><button class="deleteBtn">Delete</button></td></tr>`)
+    $('#buttonField').show(); 
+    $("#employeeTableBody").append(
+      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td id="annualSalaryIn">${annualSalary}</td><td><button class="deleteBtn">Delete</button></td></tr>`
+    );
 }
 
 clearInputs = () => {
@@ -42,3 +49,13 @@ clearInputs = () => {
     empTitle  = $('#titleInput').val('');
     annualSalary = $('#annualSalaryInput').val('');
 };
+
+
+function removeRow(event) {
+    $(event.target).closest(".tableRows").remove();
+    let tableRowsCount = $('.tableRows');
+    if (tableRowsCount.length === 0) {
+        $('#buttonField').hide();    
+    }
+};
+
