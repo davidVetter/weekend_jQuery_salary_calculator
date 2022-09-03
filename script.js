@@ -7,6 +7,10 @@ function onReady() {
         getVals();
     })
     $('#clearBtn').hide();
+    $('#clearBtn').on('click', () => {
+        $('#employeeTableBody').empty();
+        clearInputs();
+    });
 }
 
 function getVals() {
@@ -22,7 +26,17 @@ function getVals() {
 addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
     if (firstRun) {
         $('#clearBtn').show();
+        $('#tableHeadRow').append(`<th id="buttonField"></th>`);
         firstRun = false;
     }
-    $('#employeeTableBody').append(`<tr><td>${firstName}</td><td>${lastName}</td><td>${empId}</td><td>${emptTitle}</td><td>${annualSalary}</td></tr>`)
+    clearInputs();
+    $('#employeeTableBody').append(`<tr class="tableRows"><td>${firstName}</td><td>${lastName}</td><td>${empId}</td><td>${emptTitle}</td><td>${annualSalary}</td><td><button class="deleteBtn">Delete</button></td></tr>`)
 }
+
+clearInputs = () => {
+    firstName = $('#fNameInput').val('');
+    lastName = $('#lNameInput').val('');
+    empId = $('#idNumInput').val('');
+    empTitle  = $('#titleInput').val('');
+    annualSalary = $('#annualSalaryInput').val('');
+};

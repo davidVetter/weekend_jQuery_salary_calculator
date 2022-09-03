@@ -1,12 +1,43 @@
 #employeeTable {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#mainDiv {
     width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    
+
+}
+
+#inputBox {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
 }
 
 #tableDiv {
-    display: flex;
-    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #employeeTableBody {
     text-align: center;
+    border-collapse: collapse;
+}
+
+.footerDetail {
+    background-color: black;
+    border-collapse: collapse;
+    height: 3vh;
+}
+
+th {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
 }
