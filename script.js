@@ -1,6 +1,7 @@
 $(onReady);
 
 let firstRun = true;
+let monthlySalary = 0;
 
 function onReady() {
     $('#submitBtn').on('click', () => {
@@ -12,9 +13,11 @@ function onReady() {
         $('#employeeTableBody').empty();
         clearInputs();
         $('#buttonField').hide();
+        $('tfoot').hide();
     });
     $('#employeeTableBody').on('click', ".deleteBtn", (event) =>{
         removeRow(event);
+        calculateMonthly();
     });
 }
 
@@ -38,8 +41,9 @@ addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
     clearInputs();
     $('#buttonField').show(); 
     $("#employeeTableBody").append(
-      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td id="annualSalaryIn">${annualSalary}</td><td><button class="deleteBtn">Delete</button></td></tr>`
+      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td class="annualSalaryIn">${annualSalary}</td><td><button class="deleteBtn">Delete</button></td></tr>`
     );
+    calculateMonthly();
 }
 
 clearInputs = () => {
@@ -59,3 +63,20 @@ function removeRow(event) {
     }
 };
 
+calculateMonthly = () => {
+    let tableSalary = $('.annualSalaryIn');
+    let totalSalary = 0;
+    let tableRowsCount = $('.tableRows');
+    if (tableRowsCount.length === 0) {
+        monthlySalary = 0;
+        console.log('This is monthlySalary as Number, ', Number(monthlySalary.toFixed(2))); 
+    } else {
+        for (let record of tableSalary) {
+            let salaryNum = $(record).text();
+            totalSalary += Number(salaryNum);
+            monthlySalary = totalSalary / 12;
+            console.log('This is totalSalary as Number, ', Number(totalSalary));
+            console.log('This is monthlySalary as Number, ', Number(monthlySalary.toFixed(2)));
+        }
+    }
+}
