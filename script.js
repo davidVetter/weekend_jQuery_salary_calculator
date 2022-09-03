@@ -11,6 +11,25 @@ function onReady() {
     $('#submitBtn').hide();
     $('#employeeTable').hide();
     $('#inputError').hide();
+}
+
+clickHandlers = () => {
+    $('#submitBtn').on('click', () => {
+        $('#employeeTable').show();
+        $('#clearBtn').show();
+        $('tfoot').show();
+        $('#monthlyDisplay').show();
+        getVals();
+    })
+    $('#clearBtn').on('click', () => {
+        $('#employeeTableBody').empty();
+        clearInputs();
+        calculateMonthly();
+        $('#clearBtn').hide();
+        $('#buttonField').hide();
+        $('tfoot').hide();
+        $('#inputError').hide();
+    });
     $('#employeeTableBody').on('click', ".deleteBtn", (event) =>{
         removeRow(event);
         calculateMonthly();
@@ -34,24 +53,6 @@ function onReady() {
         $('#employeeTable').show();
         $('#monthlyDisplay').show();
         }
-    });
-}
-
-clickHandlers = () => {
-    $('#submitBtn').on('click', () => {
-        $('#employeeTable').show();
-        $('#clearBtn').show();
-        $('tfoot').show();
-        $('#monthlyDisplay').show();
-        getVals();
-    })
-    $('#clearBtn').on('click', () => {
-        $('#employeeTableBody').empty();
-        clearInputs();
-        calculateMonthly();
-        $('#clearBtn').hide();
-        $('#buttonField').hide();
-        $('tfoot').hide();
     });
 
 };
