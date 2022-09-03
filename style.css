@@ -4,8 +4,24 @@ body {
     background-repeat: no-repeat;
 }
 
+#allDiv {
+    margin-top: 10vh;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #bigHeading {
     text-align: center;
+    text-shadow: 1px 1px 2px #f24c00, 0 0 1em #485696, 0 0 0.2em #fc7a1e;
+    color: #e2e2e2;
+    font-size: 4vw;
+    background-color: black;
+    margin: 0 auto;
+    width: 80%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 1vh 1vw;
 }
 #employeeTable {
     width: 100%;
@@ -19,7 +35,8 @@ body {
     margin-left: auto;
     background-color: rgba(72, 86, 150, .8);
     padding: 1vh 1vw;
-    border-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 
 #inputBox {
@@ -28,6 +45,23 @@ body {
     flex-wrap: wrap;
     float: right;
     width: fit-content;
+    height: max-content;
+}
+
+.inputs {
+    background-color: #E2E2E2;
+    width: 10vw;
+    height: auto;
+    border: 1px solid #fc7a1e;
+}
+
+#submitBtn, #clearBtn {
+    background-color: #f9c784;
+    border: 1px solid #fc7a1e;
+    margin-left: 0;
+    margin-right: 0;
+    width: 10vw;
+
 }
 
 #tableDiv {
@@ -53,9 +87,19 @@ th {
 
 td {
     border: 1px solid black;
-    background-color: #E7E7E7;
+}
+
+tr {
+    background-color: #E2E2E2;
+}
+
+tr:nth-child(even) {
+    background-color: #fdfdfd;
 }
 
 #monthlyDisplay {
     float: right;
+    width: fit-content;
+    color: #485696;
+    padding-right: 1vw;
 }

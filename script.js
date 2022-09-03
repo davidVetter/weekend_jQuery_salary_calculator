@@ -118,7 +118,7 @@ calculateMonthly = () => {
         for (let record of tableSalary) {
             let salaryAsString = $(record).text();
             let salaryAsNum = salaryAsString.replace('$', '');
-            let salaryNoComma = salaryAsNum.replace(',', '');
+            let salaryNoComma = salaryAsNum.replaceAll(',', '');
             totalSalary += Number(salaryNoComma);
             monthlySalary = totalSalary / 12;
             console.log('This is totalSalary as Number, ', Number(totalSalary));
@@ -126,5 +126,5 @@ calculateMonthly = () => {
         }
     }
     $('#monthlyDisplay').empty();
-    $('#monthlyDisplay').append(`Total Monthly: $${monthlySalary.toFixed(2)}`);
+    $('#monthlyDisplay').append(`Total Monthly: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlySalary)}`);
 }
