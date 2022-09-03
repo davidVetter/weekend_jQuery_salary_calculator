@@ -12,17 +12,18 @@
 <body>
     <h1>Salary Calculator</h1>
     <div id="mainDiv">
-    <h2>Add Employee</h2>
+    <h2 id="addEmp">Add Employee</h2>
+    <p id="inputError">ALL FIELDS REQUIRED! PLEASE TRY AGAIN.</p>
     <div id="inputBox">
         <input id="fNameInput" type="text" placeholder="First Name">
         <input id="lNameInput" type="text" placeholder="Last Name">
         <input id="idNumInput" type="number" placeholder="ID">
         <input id="titleInput" type="text" placeholder="Title">
         <input id="annualSalaryInput" type="text" placeholder="Annual Salary">
+        <button type="button" id="submitBtn">Submit</button>
+        <button type="button" id="clearBtn">Clear</button>
     </div>
-    <button class="formBtn" id="submitBtn">Submit</button>
-    <button class="formBtn" id="clearBtn">Clear</button>
-    <h2 id="Employee">Employees</h2>
+    <h2 id="employeeHead">Employees</h2>
     <div id="tableDiv">
     <table id="employeeTable">
         <thead id="tableHead">
@@ -44,6 +45,9 @@
             </trow>
         </tfoot>
     </table>
+    <div>
+        <h4 id="monthlyDisplay"></h4>
+    </div>
     </div>
     </div>
 </body>

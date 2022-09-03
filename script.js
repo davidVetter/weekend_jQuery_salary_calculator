@@ -4,31 +4,73 @@ let firstRun = true;
 let monthlySalary = 0;
 
 function onReady() {
-    $('#submitBtn').on('click', () => {
-        getVals();
-    })
+    clickHandlers();
     $('#clearBtn').hide();
     $('tfoot').hide();
-    $('#clearBtn').on('click', () => {
-        $('#employeeTableBody').empty();
-        clearInputs();
-        $('#buttonField').hide();
-        $('tfoot').hide();
-    });
+    $('#inputBox').hide();
+    $('#submitBtn').hide();
+    $('#employeeTable').hide();
+    $('#inputError').hide();
     $('#employeeTableBody').on('click', ".deleteBtn", (event) =>{
         removeRow(event);
         calculateMonthly();
+
+    });
+    $('#addEmp').on('click', () => {
+        if ($('#inputBox').is(':visible')) {
+            $('#inputBox').hide();
+            $('#submitBtn').hide();
+            $('#clearBtn').hide();
+        } else {
+        $('#inputBox').show();
+        $('#submitBtn').show();
+        }
+    });
+    $('#employeeHead').on('click', () => {
+        if ($('#employeeTable').is(':visible')) {
+            $('#employeeTable').hide();
+            $('#monthlyDisplay').hide();
+        } else {
+        $('#employeeTable').show();
+        $('#monthlyDisplay').show();
+        }
     });
 }
+
+clickHandlers = () => {
+    $('#submitBtn').on('click', () => {
+        $('#employeeTable').show();
+        $('#clearBtn').show();
+        $('tfoot').show();
+        $('#monthlyDisplay').show();
+        getVals();
+    })
+    $('#clearBtn').on('click', () => {
+        $('#employeeTableBody').empty();
+        clearInputs();
+        calculateMonthly();
+        $('#clearBtn').hide();
+        $('#buttonField').hide();
+        $('tfoot').hide();
+    });
+
+};
 
 function getVals() {
     let firstName = $('#fNameInput').val();
     let lastName = $('#lNameInput').val();
     let empId = $('#idNumInput').val();
     let empTitle  = $('#titleInput').val();
-    let annualSalary = $('#annualSalaryInput').val();
+    let annualSalary = Number($('#annualSalaryInput').val());
+    console.log(annualSalary);
+
+    if (firstName === '' || lastName === '' || empId === '' || empTitle === '' || annualSalary === 0) {
+        $('#inputError').show();
+        return;
+    }
 
     addToTable(firstName, lastName, empId, empTitle, annualSalary);
+    $('#inputError').hide();
 };
 
 addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
@@ -41,7 +83,7 @@ addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
     clearInputs();
     $('#buttonField').show(); 
     $("#employeeTableBody").append(
-      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td class="annualSalaryIn">${annualSalary}</td><td><button class="deleteBtn">Delete</button></td></tr>`
+      `<tr class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td class="annualSalaryIn">$${annualSalary.toLocaleString()}</td><td><button class="deleteBtn">Delete</button></td></tr>`
     );
     calculateMonthly();
 }
@@ -59,7 +101,8 @@ function removeRow(event) {
     $(event.target).closest(".tableRows").remove();
     let tableRowsCount = $('.tableRows');
     if (tableRowsCount.length === 0) {
-        $('#buttonField').hide();    
+        $('#buttonField').hide();   
+        $('tfoot').hide(); 
     }
 };
 
@@ -72,11 +115,15 @@ calculateMonthly = () => {
         console.log('This is monthlySalary as Number, ', Number(monthlySalary.toFixed(2))); 
     } else {
         for (let record of tableSalary) {
-            let salaryNum = $(record).text();
-            totalSalary += Number(salaryNum);
+            let salaryAsString = $(record).text();
+            let salaryAsNum = salaryAsString.replace('$', '');
+            let salaryNoComma = salaryAsNum.replace(',', '');
+            totalSalary += Number(salaryNoComma);
             monthlySalary = totalSalary / 12;
             console.log('This is totalSalary as Number, ', Number(totalSalary));
             console.log('This is monthlySalary as Number, ', Number(monthlySalary.toFixed(2)));
         }
     }
+    $('#monthlyDisplay').empty();
+    $('#monthlyDisplay').append(`Total Monthly: $${monthlySalary.toFixed(2)}`);
 }
