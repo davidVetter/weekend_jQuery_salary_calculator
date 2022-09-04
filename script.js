@@ -19,6 +19,7 @@ function onReady() { // function that runs when script loads
 
 clickHandlers = () => { // this function handles all click events
     $('#submitBtn').on('click', () => {
+        $('#inputTypeError').hide();
         $('#employeeTable').show(); // series of elements to show on click
         $('#clearBtn').show();
         $('tfoot').show();
