@@ -154,6 +154,11 @@ calculateMonthly = () => {
     }
     $('#monthlyDisplay').empty();
     $('#monthlyDisplay').append(`Total Monthly: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlySalary)}`);
+    if (monthlySalary > 20000) {
+        $('#monthlyDisplay').css('background-color', 'red').css('padding-left', '1vw').css('border-radius', '7px').css('color', '#e2e2e2');
+    } else {
+        $('#monthlyDisplay').css('background-color', 'inherit').css('color', 'inherit');
+    }
 }
 
 createObject = (firstName, lastName, empId, empTitle, annualSalary) => {

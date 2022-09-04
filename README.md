@@ -1,11 +1,4 @@
 
-![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
-
-# PROJECT NAME
-
 # Employee Salary Calculator
 
 ## Description
@@ -22,8 +15,8 @@ This project will take in an employee first and last name, employee ID number, t
 
 ### Prerequisites
 
-- Modern Browser
 - Common Sense
+- Modern Browser
 
 ## Installation
 
@@ -59,7 +52,10 @@ Installation should pretty straight forward! Everything is web-based so simply o
 - Use as needed
 
 ## Acknowledgement
-Thanks to [Emerging Digital Academy](https://emergingacademy.org) who equipped and helped me to make this application a reality.
+ - Thanks to [Emerging Digital Academy](https://emergingacademy.org) who equipped and helped me to make this application a reality.
+ - Thanks to [Coolors.co](https://coolors.co/) for the color palette used.
+ - Thanks to [W3 SChools](https://www.w3schools.com) for the refernce material on HTML, Javascript and CSS.
+ - Thanks to [Mozilla](https://developer.mozilla.org/en-US/) for the in-depth reference material when a deeper understanding is need.
 
 ## Support
 If you have suggestions or issues, please email me at [GMAIL](ddvetter23@gmail.com)
