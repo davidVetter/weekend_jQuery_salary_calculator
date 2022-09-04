@@ -103,6 +103,17 @@ body {
     color: #e2e2e2;
 }
 
+#inputError, #inputTypeError {
+    color: #f24c00;
+    font-size: 1.1vw;
+    background-color: #f9c784;
+    width: fit-content;
+    border-radius: 7px;
+    border: 2px solid #f24c00;
+    padding: 3px 5px;
+    box-shadow: 0 0 8px black;
+}
+
 #employeeHead {
     text-shadow: 1px 1px 2px #e2e2e2, 0 0 1em #485696, 0 0 0.2em #e2e2e2;
     font-size: 2vw;
@@ -115,7 +126,7 @@ body {
 #tableDiv {
     margin-right: auto;
     margin-left: auto;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 12px black;
 
 }
 

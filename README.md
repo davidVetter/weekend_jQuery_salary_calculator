@@ -3,15 +3,16 @@
 
 ## Description
 
-_Duration: 18 hours_
+_Duration: 20 hours_
 
-This project will take in an employee first and last name, employee ID number, title and annual salary through input fields on the DOM. The values get added to a table as a row and a global array as an object. You may add as many employees as needed. The annual salaries of all employees in the table are used to calculate the total monthly salary due by the business. Each employee in the table has a delete button that removes only that employee from the DOM and global array. The total monthly salaray to pay is also updated and redisplayed. Each column header is also a sorting button that redisplays the current employees by the header (delete buttons still work on a row level). The clear button appears after an add has been made and will clear ALL employees from the DOM and global array.
+This project will take in an employee first and last name, employee ID number, title and annual salary through input fields on the DOM. All fields are REQUIRED or you will get an error message and the employee will not be added. ID and salary must be numbers. The values get added to a table as a row and a global array as an object. You may add as many employees as needed. When the page opens, the input fields and employee table are hidden by default (see screenshots below). Simply click the "Add Employee" heading or "Employee" heading to display the inputs or table (respectively). The table will display itself by default when an employee is added. You may toggle hide or show at anytime by clicking on the appropriate heading again. The annual salaries of all employees in the table are used to calculate the total monthly salary due by the business. Each employee in the table has a delete button that removes only that employee from the DOM and global array. The total monthly salary to pay is also updated and re-displayed. Each column header is also a sorting button that re-displays the current employees by the header (delete buttons still work on a row level). The clear button appears after an add has been made and will clear ALL employees from the DOM and global array. After monthly total is over 20K, the background becomes red. This resets if the monthly total falls back below 20K.
 
 ## Screen Shot
 
 ![](img/Screen%20Shot%202022-09-04%20at%209.11.37%20AM.jpg)
 ![](img/Screen%20Shot%202022-09-04%20at%208.24.39%20AM.jpg)
 ![](img/Screen%20Shot%202022-09-04%20at%208.35.30%20AM.jpg)
+![](img/Screen%20Shot%202022-09-04%20at%209.58.52%20AM.jpg)
 
 ### Prerequisites
 
