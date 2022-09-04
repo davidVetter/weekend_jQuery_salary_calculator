@@ -34,9 +34,9 @@ Installation should pretty straight forward! Everything is web-based so simply o
 2. Use input fields to enter employee information.
 3. Once all fields are filled, click "Add" button to display employee in table and calculated monthly salary.
 4. Use "Delete" button on each employee row to remove that employee from table and the backend. (Monthly salary updates on removals)
-5. Use "Clear" button to remove remove all employees at once. (Hidden by default until a record is added to the employee table)
-6. Each column header is a sort button. Click the head to sort but that column in descending order. You may click a different heading to resort on that heading.
-7. The "Add Employee" main heading is button to show/ hide the input fields.
+5. Use "Clear" button to remove all employees at once. (Hidden by default until a record is added to the employee table)
+6. Each column header is a sort button. Click the head to sort by that column in descending order. You may click a different heading to re-sort on that heading.
+7. The "Add Employee" main heading is button to show/hide the input fields. (Loads as hide by default).
 8. The "Employees" main heading is a button to show/hide the employee table. (This is hidden by default on page load, opens by default on first employee add).
 
 
