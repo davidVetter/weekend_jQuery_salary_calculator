@@ -140,9 +140,14 @@ th {
     font-size: 1.4vw;
 }
 
+th:hover {
+    box-shadow: 0 0 8px #fc7a1e;
+}
+
 td {
     border: 1px solid black;
     font-size: 1.1vw;
+    width:max-content;
 }
 
 .deleteBtn {

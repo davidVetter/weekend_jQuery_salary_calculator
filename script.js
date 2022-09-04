@@ -31,6 +31,7 @@ clickHandlers = () => {
         $('#buttonField').hide();
         $('tfoot').hide();
         $('#inputError').hide();
+        employeeList = [];
     });
     $('#employeeTableBody').on('click', ".deleteBtn", (event) =>{
         removeRow(event);
@@ -239,3 +240,4 @@ function displaySortEmployees(array) {
           );
     }
 }
+
