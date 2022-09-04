@@ -46,6 +46,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     float: right;
+    justify-content: right;
     width: fit-content;
     height: max-content;
 }
