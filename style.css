@@ -48,7 +48,7 @@ body {
     float: right;
     justify-content: right;
     width: fit-content;
-    height: max-content;
+    height: fit-content;
 }
 
 #addEmp {
@@ -82,7 +82,8 @@ body {
     border: 1px solid #fc7a1e;
     margin-left: 3px;
     margin-right: 3px;
-    width: 10vw;
+    width: fit-content;
+    height: auto;
     font-size: 1vw;
     box-shadow: 0 0 8px #000f08;
     border-radius: 7px;
