@@ -55,6 +55,21 @@ clickHandlers = () => {
         $('#monthlyDisplay').show();
         }
     });
+    $('#lNameHead').on('click', () => {
+        displaySortEmployees(sortLastName(employeeList));
+    });
+    $('#fNameHead').on('click', () => {
+        displaySortEmployees(sortFirstName(employeeList));
+    });
+    $('#titleHead').on('click', () => {
+        displaySortEmployees(sortTitle(employeeList));
+    });
+    $('#idHead').on('click', () => {
+        displaySortEmployees(sortID(employeeList));
+    });
+    $('#salaryHead').on('click', () => {
+        displaySortEmployees(sortSalary(employeeList));
+    });
 
 };
 
@@ -70,13 +85,13 @@ function getVals() {
         $('#inputError').show();
         return;
     }
-    createObject(firstName, lastName, empId, empTitle, annualSalary, counter);
+    //createObject(firstName, lastName, empId, empTitle, annualSalary, counter);
     counter++;
-    addToTable(firstName, lastName, empId, empTitle, annualSalary, counter);
+    addToTable(createObject(firstName, lastName, empId, empTitle, annualSalary, counter));
     $('#inputError').hide();
 };
 
-addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
+addToTable = (object) => {
     if (firstRun) {
         $('#clearBtn').show();
         $('#tableHeadRow').append(`<th title="Delete the row button column"id="buttonField"></th>`);
@@ -86,7 +101,7 @@ addToTable = (firstName, lastName, empId, emptTitle, annualSalary) => {
     clearInputs();
     $('#buttonField').show(); 
     $("#employeeTableBody").append(
-      `<tr data-counter=${counter} class="tableRows"><td id="fNameIn">${firstName}</td><td id="lNameIn">${lastName}</td><td id="empIdIn">${empId}</td><td id="empTitleIn">${emptTitle}</td><td class="annualSalaryIn">$${annualSalary.toLocaleString()}</td><td><button class="deleteBtn" title="Delete this row button">Delete</button></td></tr>`
+      `<tr data-counter=${object.counter} class="tableRows"><td id="fNameIn">${object.firstName}</td><td id="lNameIn">${object.lastName}</td><td id="empIdIn">${object.empId}</td><td id="empTitleIn">${object.empTitle}</td><td class="annualSalaryIn">$${object.annualSalary.toLocaleString()}</td><td><button class="deleteBtn" title="Delete this row button">Delete</button></td></tr>`
     );
     calculateMonthly();
 }
@@ -105,8 +120,8 @@ function removeRow(event) {
     let employeeToRemove = rowToRemove.data('counter');
     console.log('Logging employeeToRemove', employeeToRemove);
     for (let i=0; i < employeeList.length; i++) {
-        if (employeeList[i].counter === (employeeToRemove - 1)) {
-            employeeList.splice(i, 1);
+        if (employeeList[i].counter === employeeToRemove) {
+            employeeList.splice((i), 1);
         }
     }
     rowToRemove.remove();
@@ -151,4 +166,76 @@ createObject = (firstName, lastName, empId, empTitle, annualSalary) => {
     }
     employeeList.push(addObj);
     console.log(`Logging out employeeList`, employeeList);
+    return addObj;
+}
+
+function sortFirstName (array) {
+    let arr = array;
+    let sortArt = [...arr].sort((a, b) => { // sorts without changing original collection
+    let firstA = a.firstName.toLowerCase(); // convert lastName value to lowercase
+    let firstB = b.firstName.toLowerCase(); // convert lastName value to lowercase
+    if (firstA < firstB) { // compares letter for sorting
+        return -1;
+    } else if (firstA > firstB) {
+        return 1;
+    } else {
+    return 0;
+    }
+});
+return sortArt; // return sorted collection
+} // end sortFirstName function
+
+function sortLastName (array) {
+    let arr = array;
+    let sortArt = [...arr].sort((a, b) => { // sorts without changing original collection
+    let firstA = a.lastName.toLowerCase(); // convert lastName value to lowercase
+    let firstB = b.lastName.toLowerCase(); // convert lastName value to lowercase
+    if (firstA < firstB) { // compares letter for sorting
+        return -1;
+    } else if (firstA > firstB) {
+        return 1;
+    } else {
+    return 0;
+    }
+});
+return sortArt; // return sorted collection
+} // end sortLastName function
+
+function sortTitle (array) {
+    let arr = array;
+    let sortArt = [...arr].sort((a, b) => { // sorts without changing original collection
+    let firstA = a.empTitle.toLowerCase(); // convert lastName value to lowercase
+    let firstB = b.empTitle.toLowerCase(); // convert lastName value to lowercase
+    if (firstA < firstB) { // compares letter for sorting
+        return -1;
+    } else if (firstA > firstB) {
+        return 1;
+    } else {
+    return 0;
+    }
+});
+return sortArt; // return sorted collection
+} // end sortLastName function
+
+function sortID(array) { // sorts without changing original collection
+let sortYr = [...array].sort((a, b) => {
+    return a.empId - b.empId;
+});
+return sortYr; // return sorted collection
+}
+
+function sortSalary(array) { // sorts without changing original collection
+    let sortYr = [...array].sort((a, b) => {
+        return a.annualSalary - b.annualSalary;
+    });
+    return sortYr; // return sorted collection
+    }
+
+function displaySortEmployees(array) {
+    $('#employeeTableBody').empty();
+    for (let record of array) {
+        $("#employeeTableBody").append(
+            `<tr data-counter=${record.counter} class="tableRows"><td id="fNameIn">${record.firstName}</td><td id="lNameIn">${record.lastName}</td><td id="empIdIn">${record.empId}</td><td id="empTitleIn">${record.empTitle}</td><td class="annualSalaryIn">$${record.annualSalary.toLocaleString()}</td><td><button class="deleteBtn" title="Delete this row button">Delete</button></td></tr>`
+          );
+    }
 }
