@@ -1,9 +1,68 @@
-# Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
+
+# PROJECT NAME
+
+# Employee Salary Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+_Duration: 18 hours_
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This project will take in an employee first and last name, employee ID number, title and annual salary through input fields on the DOM. The values get added to a table as a row and a global array as an object. You may add as many employees as needed. The annual salaries of all employees in the table are used to calculate the total monthly salary due by the business. Each employee in the table has a delete button that removes only that employee from the DOM and global array. The total monthly salaray to pay is also updated and redisplayed. Each column header is also a sorting button that redisplays the current employees by the header (delete buttons still work on a row level). The clear button appears after an add has been made and will clear ALL employees from the DOM and global array.
+
+## Screen Shot
+
+![](img/Screen%20Shot%202022-09-04%20at%209.11.37%20AM.jpg)
+![](img/Screen%20Shot%202022-09-04%20at%208.24.39%20AM.jpg)
+![](img/Screen%20Shot%202022-09-04%20at%208.35.30%20AM.jpg)
+
+### Prerequisites
+
+- Modern Browser
+- Common Sense
+
+## Installation
+
+Installation should pretty straight forward! Everything is web-based so simply open the website in a modern web browser and you should be ready to start adding your employees and calculating your salaries. (Currently not hosted anywhere so download repo to folder and open index.html in a browser)
+
+1. Find url of Salary Calculator (https://github.com/davidVetter/weekend_jQuery_salary_calculator)
+2. Navigate to webpage
+3. START ADDING EMPLOYEES!
+4. Delete employees as needed.
+
+## Usage
+
+1. Open webpage.
+2. Use input fields to enter employee information.
+3. Once all fields are filled, click "Add" button to display employee in table and calculated monthly salary.
+4. Use "Delete" button on each employee row to remove that employee from table and the backend. (Monthly salary updates on removals)
+5. Use "Clear" button to remove remove all employees at once. (Hidden by default until a record is added to the employee table)
+6. Each column header is a sort button. Click the head to sort but that column in descending order. You may click a different heading to resort on that heading.
+7. The "Add Employee" main heading is button to show/ hide the input fields.
+8. The "Employees" main heading is a button to show/hide the employee table. (This is hidden by default on page load, opens by default on first employee add).
+
+
+## Built With
+
+- HTML
+- Javascript
+- jQuery
+- CSS
+
+## License
+
+- No license
+- Use as needed
+
+## Acknowledgement
+Thanks to [Emerging Digital Academy](https://emergingacademy.org) who equipped and helped me to make this application a reality.
+
+## Support
+If you have suggestions or issues, please email me at [GMAIL](ddvetter23@gmail.com)
+
+<!-- [Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md -->
+
